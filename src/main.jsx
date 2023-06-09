@@ -61,8 +61,8 @@ const router = createBrowserRouter([
     element:<MainDashborad></MainDashborad>,
     children: [
       {
-        path: "dashboard/allclass",
-        element: <AllClass></AllClass>
+        path: "dashboard/selectclass",
+        element:<MySelectClass></MySelectClass>
       },
     ]
  }

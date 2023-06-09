@@ -20,26 +20,17 @@ const Dashborad = () => {
                 </CDBSidebarHeader>
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
-                        <NavLink exact to="dashboard/allclass" activeClassName="activeClicked">
+                        <NavLink exact to="dashboard/selectclass" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="columns">
-                                classes
+                            Selected Classes
                             </CDBSidebarMenuItem>
                         </NavLink>
                         <NavLink exact to="/dashboard" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="columns">
-                                Transfer
+                            My Enrolled Classes
                             </CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/dashboard" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem icon="columns">
-                                Transfer
-                            </CDBSidebarMenuItem>
-                        </NavLink>
-                        <NavLink exact to="/dashboard" activeClassName="activeClicked">
-                             <CDBSidebarMenuItem icon="columns">
-                                Transfer
-                            </CDBSidebarMenuItem>
-                        </NavLink>
+
                     </CDBSidebarMenu>
 
                     <CDBSidebarMenu>
