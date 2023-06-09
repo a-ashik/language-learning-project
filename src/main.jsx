@@ -21,9 +21,13 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import Dashborad from './layout/Dashborad';
+import MySelectClass from './Dashborad/MySelectClass';
+import MainDashborad from './Dashborad/MainDashborad';
+import AllClass from './Dashborad/AllClass';
+
+
 const queryClient = new QueryClient()
-
-
 
 const router = createBrowserRouter([
   {
@@ -52,6 +56,17 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "/dashboard",
+    element:<MainDashborad></MainDashborad>,
+    children: [
+      {
+        path: "dashboard/allclass",
+        element: <AllClass></AllClass>
+      },
+    ]
+ }
+
 ]);
 
 
