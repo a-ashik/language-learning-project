@@ -61,9 +61,7 @@ const SingleClass = ({data}) => {
             <p>Available seats: {data.seats}</p>
             <p>Price: {data.price}</p>
             <div>
-                {
-                
-                }
+            <button disabled={!user} className="btn btn-dark"onClick={() => handleSelect(data)} >Select class</button>
             </div>
         </div>
     );
