@@ -1,7 +1,56 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SingleClass.css'
+import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SingleClass = ({data}) => {
+  
+    const {user} = useContext(AuthContext)
+
+    const handleSelect = (item)=>{
+        // console.log(item);
+        if(user){
+
+            const classItem = {
+                id: item._id,
+                name: item.name,
+                seats: item.seats,
+                image: item.image,
+                instructorName: user.displayName,
+                email: user.email,
+                price: item.price
+            }
+
+            fetch('http://localhost:5000/carts',{
+                method:'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(classItem)
+            })
+            .then(response =>response.json())
+            .then(data => {
+                if(data.insertedId){
+                    Swal.fire({
+                        position: 'top',
+                        icon: 'success',
+                        title: 'Select succesfull',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+        }
+        else{
+            Swal.fire({
+                position: 'top',
+                title: 'Login first',
+                showConfirmButton: false,
+                timer: 1000
+              })
+        }
+    }
+
     return (
         <div className='col-md-4'>
             <div className="classImg mb-2">
@@ -11,7 +60,11 @@ const SingleClass = ({data}) => {
             <h5>Instructor name: {data.instructorName}</h5>
             <p>Available seats: {data.seats}</p>
             <p>Price: {data.price}</p>
-            <button className="btn btn-dark">Select class</button>
+            <div>
+                {
+                
+                }
+            </div>
         </div>
     );
 };

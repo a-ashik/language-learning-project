@@ -12,8 +12,6 @@ const Classes = () => {
         .then((data) =>setClassData(data))
     },[])
 
-    console.log(classData);
-
     return (
         <div className="container my-5">
         <div className=" row">
