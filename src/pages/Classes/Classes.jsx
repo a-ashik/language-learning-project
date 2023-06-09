@@ -15,7 +15,8 @@ const Classes = () => {
     console.log(classData);
 
     return (
-        <div>
+        <div className="container my-5">
+        <div className=" row">
             {
                 classData.map((data) =>
                 <SingleClass
@@ -24,6 +25,7 @@ const Classes = () => {
                 ></SingleClass>
                 )
             }
+        </div>
         </div>
     );
 };
