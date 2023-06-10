@@ -11,6 +11,12 @@ import {
   import { Link, NavLink, Outlet } from 'react-router-dom';
 
 const Dashborad = () => {
+
+    const isAdmin = true;
+    const isInstructor = false;
+
+
+
     return (
         <div className="h-100">
                     <div style={{display:'flex',height:'100vh', overflow:'scroll initial'}}>
@@ -19,35 +25,45 @@ const Dashborad = () => {
                     <Link to="/">BACK TO HOME</Link>
                 </CDBSidebarHeader>
                 <CDBSidebarContent className="sidebar-content">
-                    <CDBSidebarMenu>
-                        <NavLink exact to="dashboard/selectclass" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem icon="columns">
-                            Selected Classes
-                            </CDBSidebarMenuItem>
-                        </NavLink>
-                        <NavLink exact to="dashboard/enrolledclasses" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem icon="columns">
-                            My Enrolled Classes
-                            </CDBSidebarMenuItem>
-                        </NavLink>
 
-                    </CDBSidebarMenu>
+                    {
+                        isAdmin ? (
 
-                    <CDBSidebarMenu>
-                        <NavLink exact to="dashboard/allclass" activeClassName="activeClicked">
-                           
-                        <CDBSidebarMenuItem icon="columns">
-                                all classes
-                        </CDBSidebarMenuItem>
-                            
-                        </NavLink>
-                        <NavLink exact to="/dashboard" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem icon="rows">
-                                Transfer
-                            </CDBSidebarMenuItem>
-                        </NavLink>
+                            <CDBSidebarMenu>
+                                <NavLink exact to="" activeClassName="activeClicked">
+                                    <CDBSidebarMenuItem icon="columns">
+                                        All User
+                                    </CDBSidebarMenuItem>
+                                </NavLink>
+                            </CDBSidebarMenu>
 
-                    </CDBSidebarMenu>
+                        ) : isInstructor ? (
+
+                            <CDBSidebarMenu>
+                            <NavLink exact to="dashboard/allclass" activeClassName="activeClicked">
+                                <CDBSidebarMenuItem icon="columns">
+                                    all classes
+                                </CDBSidebarMenuItem>
+                            </NavLink>
+                            </CDBSidebarMenu>
+
+                        ) : (
+
+                            <CDBSidebarMenu>
+                                <NavLink exact to="dashboard/selectclass" activeClassName="activeClicked">
+                                    <CDBSidebarMenuItem icon="columns">
+                                    Selected Classes
+                                    </CDBSidebarMenuItem>
+                                </NavLink>
+                                <NavLink exact to="dashboard/enrolledclasses" activeClassName="activeClicked">
+                                    <CDBSidebarMenuItem icon="columns">
+                                    My Enrolled Classes
+                                    </CDBSidebarMenuItem>
+                                </NavLink>
+                            </CDBSidebarMenu>
+                        )
+                    }
+
 
                 </CDBSidebarContent>
                 <CDBSidebarFooter style={{textAlign:'center'}}>

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../provider/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 
@@ -11,7 +11,9 @@ const Register = () => {
 
     const {creatUser,updateUserProfile} = useContext(AuthContext)
     const { register, handleSubmit,reset,formState: { errors } } = useForm();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const onSubmit = (data) =>{
         //  console.log(data)
@@ -34,7 +36,7 @@ const Register = () => {
                     if(data.insertedId){
                         console.log('successsssssful');
                         reset()
-                        navigate('/')
+                        navigate(from, {replace:true})
                     }
                 })
 
