@@ -13,7 +13,7 @@ import {
 const Dashborad = () => {
 
     const isAdmin = true;
-    const isInstructor = false;
+    const isInstructor = true;
 
 
 
@@ -30,16 +30,23 @@ const Dashborad = () => {
                         isAdmin ? (
 
                             <CDBSidebarMenu>
-                                <NavLink exact to="" activeClassName="activeClicked">
+                                <h6 className="text-center border-bottom border-top py-2">Admin</h6>
+                                <NavLink exact to="dashboard/alluser" activeClassName="activeClicked">
                                     <CDBSidebarMenuItem icon="columns">
                                         All User
                                     </CDBSidebarMenuItem>
                                 </NavLink>
+                                <NavLink exact to="" activeClassName="activeClicked">
+                                <CDBSidebarMenuItem icon="columns">
+                                    Classes
+                                </CDBSidebarMenuItem>
+                            </NavLink>
                             </CDBSidebarMenu>
 
                         ) : isInstructor ? (
 
                             <CDBSidebarMenu>
+                                <h6 className="text-center border-bottom border-top py-2">Instructor</h6>
                             <NavLink exact to="dashboard/allclass" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="columns">
                                     all classes
@@ -50,6 +57,7 @@ const Dashborad = () => {
                         ) : (
 
                             <CDBSidebarMenu>
+                                <h6 className="text-center border-bottom border-top py-2">Student</h6>
                                 <NavLink exact to="dashboard/selectclass" activeClassName="activeClicked">
                                     <CDBSidebarMenuItem icon="columns">
                                     Selected Classes
