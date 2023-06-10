@@ -5,8 +5,12 @@ import { Outlet } from 'react-router-dom';
 const MainDashborad = () => {
     return (
         <div className="d-flex">
-            <Dashborad></Dashborad>
-            <Outlet></Outlet>
+            <div className="col-md-3">
+                <Dashborad></Dashborad>
+            </div>
+            <div col-md-9>
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

@@ -13,8 +13,8 @@ import {
 const Dashborad = () => {
     return (
         <div className="h-100">
-                    <div style={{display:'flex', height:'100%', overflow:'scroll initial'}}>
-            <CDBSidebar textColer="#fff" backgroundColor="black">
+                    <div style={{display:'flex',height:'100vh', overflow:'scroll initial'}}>
+            <CDBSidebar textColer="#fff" backgroundColor="black" className="h-100">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <Link to="/">BACK TO HOME</Link>
                 </CDBSidebarHeader>
@@ -25,7 +25,7 @@ const Dashborad = () => {
                             Selected Classes
                             </CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/dashboard" activeClassName="activeClicked">
+                        <NavLink exact to="dashboard/enrolledclasses" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="columns">
                             My Enrolled Classes
                             </CDBSidebarMenuItem>

@@ -25,6 +25,7 @@ import Dashborad from './layout/Dashborad';
 import MySelectClass from './Dashborad/MySelectClass';
 import MainDashborad from './Dashborad/MainDashborad';
 import AllClass from './Dashborad/AllClass';
+import EnrolledClasses from './Dashborad/EnrolledClasses';
 
 
 const queryClient = new QueryClient()
@@ -58,12 +59,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element:<MainDashborad></MainDashborad>,
+    element:<PrivateRoute><MainDashborad></MainDashborad></PrivateRoute>,
     children: [
       {
         path: "dashboard/selectclass",
         element:<MySelectClass></MySelectClass>
       },
+      {
+        path: "dashboard/enrolledclasses",
+        element: <EnrolledClasses></EnrolledClasses>
+      }
     ]
  }
 
