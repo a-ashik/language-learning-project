@@ -13,15 +13,32 @@ const Register = () => {
     const { register, handleSubmit,reset,formState: { errors } } = useForm();
     const navigate = useNavigate()
 
-    const onSubmit = data =>{
+    const onSubmit = (data) =>{
         //  console.log(data)
          creatUser(data.email, data.password)
          .then(()=>{
             updateUserProfile(data.name, data.photo)
             .then(()=>{
-                console.log('profile updated');
-                reset()
-                navigate('/')
+                
+                const userInfo ={name: data.name, email: data.email}
+       
+                fetch('http://localhost:5000/users',{
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                .then(res=> res.json())
+                .then((data)=>{
+                    if(data.insertedId){
+                        console.log('successsssssful');
+                        reset()
+                        navigate('/')
+                    }
+                })
+
+
             })
             .catch((error)=>{
                 console.log(error);

@@ -37,7 +37,28 @@ const Login = () => {
 
     const handleGoogleSignin =()=>{
         googleLogin()
-        .then(() => {
+        .then((result) => {
+
+            const loggedInUser = result.user
+
+            const userInfo ={name: loggedInUser.displayName, email: loggedInUser.email}
+            console.log(userInfo);
+            fetch('http://localhost:5000/users',{
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(userInfo)
+            })
+            .then(res=> res.json())
+            .then((data)=>{
+                if(data.insertedId){
+                    console.log('successsssssful login');
+                }
+            })
+
+
+
             navigate(from, {replace:true})
             Swal.fire({
                 title: 'login succesful',
