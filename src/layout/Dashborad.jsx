@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Nav, Tab, Tabs } from 'react-bootstrap';
+import { Nav, Spinner, Tab, Tabs } from 'react-bootstrap';
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -16,7 +16,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const Dashborad = () => {
 
-    const {user} = useContext(AuthContext)
+    const {user,loader} = useContext(AuthContext)
 
     const {data : users =[], refetch} = useQuery(['users'], async()=>{
         const res = await fetch('http://localhost:5000/users')
@@ -27,7 +27,7 @@ const Dashborad = () => {
     const [isInstructor, setIsInstructor] = useState(false)
 
     useEffect(() => {
-        const Admin = users.map(data => {
+        const Admin = users.find(data => {
             if(user.email == data.email && data.role === 'admin'){
                setIsAdmin(true)
             }else if(user.email == data.email && data.role === 'instructor'){
@@ -75,9 +75,14 @@ const Dashborad = () => {
 
                             <CDBSidebarMenu>
                                 <h6 className="text-center border-bottom border-top py-2">Instructor</h6>
-                            <NavLink exact to="dashboard/allclass" activeClassName="activeClicked">
+                            <NavLink exact to="dashboard/addclass" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="columns">
-                                    all classes
+                                    Add a Class
+                                </CDBSidebarMenuItem>
+                            </NavLink>
+                            <NavLink exact to="dashboard/myclasses" activeClassName="activeClicked">
+                                <CDBSidebarMenuItem icon="columns">
+                                    My classes
                                 </CDBSidebarMenuItem>
                             </NavLink>
                             </CDBSidebarMenu>
