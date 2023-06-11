@@ -10,7 +10,6 @@ const AllUser = () => {
     })
 
     const handleMakeAdmin = (id)=>{
-        console.log(id);
         fetch(`http://localhost:5000/users/admin/${id}`,{
             method: 'PATCH',
         })
@@ -24,11 +23,34 @@ const AllUser = () => {
                     icon: 'success',
                     title: 'make admin success',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1200
                   })
             }
         })
     }
+
+
+    const handleMakeInstructor= (data) =>{
+        console.log(data._id);
+        fetch(`http://localhost:5000/users/instructor/${data._id}`,{
+            method: 'PATCH',
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.modifiedCount){
+                refetch()
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'make Instructor success',
+                    showConfirmButton: false,
+                    timer: 1200
+                  })
+            }
+        })
+    }
+
 
     return (
         <div className="mt-5">
@@ -58,7 +80,11 @@ const AllUser = () => {
                                     }
                                 </td>
                                 <td>
-                                    <button className="btn btn-dark">Instructor</button>
+                                {
+                                 data.role === 'instructor' ? 'complete' :
+                                 <button onClick={() =>handleMakeInstructor(data)} className="btn btn-dark">Instructor</button>
+                                }
+                                    
                                 </td>
 
                             </tr>

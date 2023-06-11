@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Nav, Tab, Tabs } from 'react-bootstrap';
 import {
     CDBSidebar,
@@ -8,13 +8,41 @@ import {
     CDBSidebarMenu,
     CDBSidebarMenuItem,
   } from 'cdbreact';
-  import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { AuthContext } from '../provider/AuthProvider';
+
+
 
 const Dashborad = () => {
 
-    const isAdmin = true;
-    const isInstructor = true;
+    const {user} = useContext(AuthContext)
 
+    const {data : users =[], refetch} = useQuery(['users'], async()=>{
+        const res = await fetch('http://localhost:5000/users')
+        return res.json()
+    })
+
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [isInstructor, setIsInstructor] = useState(false)
+
+    useEffect(() => {
+        const Admin = users.map(data => {
+            if(user.email == data.email && data.role === 'admin'){
+               setIsAdmin(true)
+            }else if(user.email == data.email && data.role === 'instructor'){
+                setIsInstructor(true)
+            }
+            return false
+            
+        })
+    
+    },[])
+
+    console.log(isAdmin);
+    console.log(isInstructor);
+
+    // const isInstructor = true;
 
 
     return (
