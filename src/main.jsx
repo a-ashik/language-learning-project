@@ -73,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard/alluser",
         element: <AllUser></AllUser>
+      },
+      {
+        path: "dashboard/allclass",
+        element: <AllClass></AllClass>
       }
     ]
  }

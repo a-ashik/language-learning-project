@@ -61,12 +61,12 @@ const Dashborad = () => {
                                 <h6 className="text-center border-bottom border-top py-2">Admin</h6>
                                 <NavLink exact to="dashboard/alluser" activeClassName="activeClicked">
                                     <CDBSidebarMenuItem icon="columns">
-                                        All User
+                                        All Users
                                     </CDBSidebarMenuItem>
                                 </NavLink>
-                                <NavLink exact to="" activeClassName="activeClicked">
+                                <NavLink exact to="dashboard/allclass" activeClassName="activeClicked">
                                 <CDBSidebarMenuItem icon="columns">
-                                    Classes
+                                    Manage Classes
                                 </CDBSidebarMenuItem>
                             </NavLink>
                             </CDBSidebarMenu>
