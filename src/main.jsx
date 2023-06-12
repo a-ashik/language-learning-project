@@ -81,11 +81,15 @@ const router = createBrowserRouter([
         element: <AllClass></AllClass>
       },
       {
-        path: "dashboard/myclasses",
+        path: "myclasses",
         element: <Myclass></Myclass>
       },
       {
-        path: "dashboard/addclass",
+        path: "addclass",
+        element: <AddClass></AddClass>
+      },
+      {
+        path: "myclasses/addclass",
         element: <AddClass></AddClass>
       },
     ]

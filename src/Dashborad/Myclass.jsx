@@ -1,8 +1,9 @@
 import React from 'react';
 import useClasses from '../hooks/useClasses';
-import { Table } from 'react-bootstrap';
+import { NavLink, Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import useAddClass from '../hooks/useAddClass';
+import { Link } from 'react-router-dom';
 
 const MySelectClass = () => {
 
@@ -44,8 +45,12 @@ const MySelectClass = () => {
     return (
         <div className='container mx-auto'>
             <div className="d-flex justify-content-between ms-5 mt-3 w-100">
-                {/* <h1 className="me-5">Total Class: {cart?.length || 0}</h1> */}
-                <button className='btn btn-dark px-3'>Add Class</button>
+                <h1 className="me-5">Total Class: {classes?.length || 0}</h1>
+                <button className='btn btn-dark px-3'>
+                <Link exact to="addclass" className="text-decoration-none text-light">  
+                    Add a Class
+                </Link>
+                </button>
             </div>
             <div className='w-100 mt-3'>
             <Table className='' >

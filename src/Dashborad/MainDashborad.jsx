@@ -9,6 +9,9 @@ const MainDashborad = () => {
                 <Dashborad></Dashborad>
             </div>
             <div col-md-9>
+                <div>
+                    <h1 className='text-center text-decoration-underline'>Dashboard</h1>
+                </div>
                 <Outlet></Outlet>
             </div>
         </div>
