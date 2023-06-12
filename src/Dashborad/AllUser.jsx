@@ -31,7 +31,7 @@ const AllUser = () => {
 
 
     const handleMakeInstructor= (data) =>{
-        console.log(data._id);
+        console.log(data);
         fetch(`http://localhost:5000/users/instructor/${data._id}`,{
             method: 'PATCH',
         })
@@ -46,6 +46,33 @@ const AllUser = () => {
                     title: 'make Instructor success',
                     showConfirmButton: false,
                     timer: 1200
+                  })
+            }
+        })
+
+
+        const instructorItem = {
+            instructorName: data.name,
+            email: data.email,
+            photo: data.photo
+        }
+
+        fetch('http://localhost:5000/instructor',{
+            method:'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(instructorItem)
+        })
+        .then(response =>response.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'succesfull',
+                    showConfirmButton: false,
+                    timer: 1500
                   })
             }
         })

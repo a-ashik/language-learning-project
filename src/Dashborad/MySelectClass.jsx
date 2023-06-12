@@ -2,6 +2,7 @@ import React from 'react';
 import useClasses from '../hooks/useClasses';
 import { Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MySelectClass = () => {
 
@@ -44,7 +45,9 @@ const MySelectClass = () => {
             <div className="d-flex justify-content-between ms-5 mt-3 w-100">
                 <h1 className="me-5">Total Item: {cart?.length || 0}</h1>
                 <h1 className="me-5">Total Price: {total}</h1>
-                <button className='btn btn-dark px-3'>Pay</button>
+                <button className='btn btn-dark  px-3'>
+                    <Link className='test-underline-none text-light' to='/dashboard/payment'>Pay</Link>
+                </button>
             </div>
             <div className='w-100 mt-3'>
             <Table className='' >

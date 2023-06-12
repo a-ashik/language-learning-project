@@ -41,7 +41,7 @@ const Login = () => {
 
             const loggedInUser = result.user
 
-            const userInfo ={name: loggedInUser.displayName, email: loggedInUser.email}
+            const userInfo ={name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photoURL}
             console.log(userInfo);
             fetch('http://localhost:5000/users',{
                 method: 'POST',

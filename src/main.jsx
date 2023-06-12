@@ -29,6 +29,8 @@ import EnrolledClasses from './Dashborad/EnrolledClasses';
 import AllUser from './Dashborad/AllUser';
 import Myclass from './Dashborad/Myclass';
 import AddClass from './Dashborad/AddClass';
+import Payment from './Dashborad/Payment';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 
 const queryClient = new QueryClient()
@@ -92,7 +94,19 @@ const router = createBrowserRouter([
         path: "myclasses/addclass",
         element: <AddClass></AddClass>
       },
+      {
+        path: "payment",
+        element: <Payment></Payment>
+      },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>
+      }
     ]
+ },
+ {
+    path: "*",
+    element:<ErrorPage></ErrorPage>
  }
 
 ]);

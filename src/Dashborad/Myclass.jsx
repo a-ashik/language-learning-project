@@ -8,40 +8,7 @@ import { Link } from 'react-router-dom';
 const MySelectClass = () => {
 
     const [classes, refetch] = useAddClass()
-    console.log(classes);
-    // const total = cart.reduce((sum, data) => data.price + sum,0)
-
-    // const handleDelete = (item) => {
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You won't be able to revert this!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //       }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             fetch(`http://localhost:5000/carts/${item._id}`,{
-    //                 method: 'DELETE',
-    //             })
-    //             .then(res => res.json())
-    //             .then((data) =>{
-    //                 if(data.deletedCount > 0) {
-    //                     refetch()
-    //                     Swal.fire(
-    //                         'Deleted!',
-    //                         'Your file has been deleted.',
-    //                         'success'
-    //                       )
-    //                 }
-    //             })
-
-    //         }
-    //       })
-    // }
-
-
+    // console.log(classes);
     return (
         <div className='container mx-auto'>
             <div className="d-flex justify-content-between ms-5 mt-3 w-100">
@@ -59,7 +26,9 @@ const MySelectClass = () => {
                         <th>#</th>
                         <th>Image</th>
                         <th>Name of class</th>
+                        <th>Seats</th>
                         <th>Price</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -72,9 +41,11 @@ const MySelectClass = () => {
                                     <img className="w-100 h-100" src={data.image} alt="" />
                                 </td>
                                 <td>{data.name}</td>
+                                <td>{data.seats}</td>
                                 <td>{data.price}</td>
+                                <td>{data.status}</td>
                                 <td>
-                                    <button onClick={()=> handleDelete(data)} >Delete</button>
+                                    <button class="btn btn-dark">Update</button>
                                 </td>
                             </tr>
                         )

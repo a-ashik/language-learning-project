@@ -52,7 +52,7 @@ const SingleClass = ({data}) => {
     }
 
     return (
-        <div className='col-md-4'>
+        <div className='col-md-4 mt-5'>
             <div className="classImg mb-2">
                 <img className='classImg' src={data.image} alt="" />
             </div>

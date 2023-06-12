@@ -5,15 +5,17 @@ const Classes = () => {
 
      const [classData,setClassData] = useState([])
 
-
     useEffect(() => {
         fetch('http://localhost:5000/classes')
         .then((res) => res.json())
         .then((data) =>setClassData(data))
     },[])
 
+    
+
     return (
         <div className="container my-5">
+            <h1 className="text-center">Classes</h1>
         <div className=" row">
             {
                 classData.map((data) =>

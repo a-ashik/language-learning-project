@@ -47,7 +47,7 @@ const Dashborad = () => {
 
     return (
         <div className="h-100">
-                    <div style={{display:'flex',height:'100vh', overflow:'scroll initial'}}>
+            <div style={{display:'flex',height:'100vh', overflow:'scroll initial'}}>
             <CDBSidebar textColer="#fff" backgroundColor="black" className="h-100">
                 <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
                     <Link to="/">BACK TO HOME</Link>
@@ -101,17 +101,22 @@ const Dashborad = () => {
                                     My Enrolled Classes
                                     </CDBSidebarMenuItem>
                                 </NavLink>
+                                <NavLink exact to="payment" activeClassName="activeClicked">
+                                    <CDBSidebarMenuItem icon="columns">
+                                    Payment
+                                    </CDBSidebarMenuItem>
+                                </NavLink>
                             </CDBSidebarMenu>
                         )
                     }
 
 
                 </CDBSidebarContent>
-                <CDBSidebarFooter style={{textAlign:'center'}}>
+                {/* <CDBSidebarFooter style={{textAlign:'center'}}>
                     <div className="sidebar-btn-wrapper" style={{ padding :'20px 5px' }}>
                         sidebar footer
                     </div>
-                </CDBSidebarFooter>
+                </CDBSidebarFooter> */}
             </CDBSidebar>
         </div>
         
