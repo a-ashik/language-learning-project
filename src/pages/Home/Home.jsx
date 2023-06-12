@@ -3,6 +3,7 @@ import Slider from '../Slider/Slider';
 import SinglelClassItem from '../SingleClassItem/SinglelClassItem';
 import SingleInstructor from '../SingleInstructor/SingleInstructor';
 import About from '../About/About';
+import { Zoom } from "react-awesome-reveal";
 
 const Home = () => {
 
@@ -33,7 +34,7 @@ const Home = () => {
                         key={data._id}
                         data={data}
                         ></SinglelClassItem>
-                        )
+                        ) 
                  
                 }
             </div>

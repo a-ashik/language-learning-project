@@ -96,16 +96,17 @@ const Dashborad = () => {
                                     Selected Classes
                                     </CDBSidebarMenuItem>
                                 </NavLink>
-                                <NavLink exact to="dashboard/enrolledclasses" activeClassName="activeClicked">
-                                    <CDBSidebarMenuItem icon="columns">
-                                    My Enrolled Classes
-                                    </CDBSidebarMenuItem>
-                                </NavLink>
                                 <NavLink exact to="payment" activeClassName="activeClicked">
                                     <CDBSidebarMenuItem icon="columns">
                                     Payment
                                     </CDBSidebarMenuItem>
                                 </NavLink>
+                                <NavLink exact to="dashboard/enrolledclasses" activeClassName="activeClicked">
+                                    <CDBSidebarMenuItem icon="columns">
+                                    My Enrolled Classes
+                                    </CDBSidebarMenuItem>
+                                </NavLink>
+
                             </CDBSidebarMenu>
                         )
                     }

@@ -54,7 +54,7 @@ const CheakOutForm = ({price}) => {
           }
 
           const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(
-            {clientSecret},
+            clientSecret,
             {
               payment_method: {
                 card: card,
@@ -65,11 +65,11 @@ const CheakOutForm = ({price}) => {
             },
           );
 
-        //   if(confirmError){
-        //     console.log(confirmError);
-        //   }
+          if(confirmError){
+            console.log(confirmError);
+          }
 
-        //   console.log(paymentIntent);
+          console.log(paymentIntent);
 
         };
 
