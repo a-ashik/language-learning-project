@@ -5,12 +5,12 @@ import Swal from 'sweetalert2';
 
 const AllUser = () => {
     const {data : users =[], refetch} = useQuery(['users'], async()=>{
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://language-server-ten.vercel.app/users')
         return res.json()
     })
 
     const handleMakeAdmin = (id)=>{
-        fetch(`http://localhost:5000/users/admin/${id}`,{
+        fetch(`https://language-server-ten.vercel.app/users/admin/${id}`,{
             method: 'PATCH',
         })
         .then(res=>res.json())
@@ -32,7 +32,7 @@ const AllUser = () => {
 
     const handleMakeInstructor= (data) =>{
         console.log(data);
-        fetch(`http://localhost:5000/users/instructor/${data._id}`,{
+        fetch(`https://language-server-ten.vercel.app/users/instructor/${data._id}`,{
             method: 'PATCH',
         })
         .then(res=>res.json())
@@ -57,7 +57,7 @@ const AllUser = () => {
             photo: data.photo
         }
 
-        fetch('http://localhost:5000/instructor',{
+        fetch('https://language-server-ten.vercel.app/instructor',{
             method:'POST',
             headers: {
                 'content-type': 'application/json',

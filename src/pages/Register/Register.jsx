@@ -25,7 +25,7 @@ const Register = () => {
                 const userInfo ={name: data.name, email: data.email, photo: data.photo}
                 console.log(userInfo);
        
-                fetch('http://localhost:5000/users',{
+                fetch('https://language-server-ten.vercel.app/users',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

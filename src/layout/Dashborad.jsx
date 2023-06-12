@@ -19,7 +19,7 @@ const Dashborad = () => {
     const {user,loader} = useContext(AuthContext)
 
     const {data : users =[], refetch} = useQuery(['users'], async()=>{
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://language-server-ten.vercel.app/users')
         return res.json()
     })
 

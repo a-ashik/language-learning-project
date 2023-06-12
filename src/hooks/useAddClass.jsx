@@ -9,7 +9,7 @@ const useAddClass = () => {
     const { refetch, data: classes= [] } = useQuery({
         queryKey: ['classes',user?.email],
         queryFn: async (query) =>{
-          const res = await fetch(`http://localhost:5000/classes?email=${user?.email}`)
+          const res = await fetch(`https://language-server-ten.vercel.app/classes?email=${user?.email}`)
           return res.json()
         },
       })

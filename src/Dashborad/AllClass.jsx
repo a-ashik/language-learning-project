@@ -11,7 +11,7 @@ const AllClass = () => {
     const [itemDisabled, setItemDisabled] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://language-server-ten.vercel.app/classes')
         .then((res) => res.json())
         .then((data) =>setClassData(data))
     },[])

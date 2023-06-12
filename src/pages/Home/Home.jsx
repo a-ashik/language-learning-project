@@ -11,11 +11,11 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://language-server-ten.vercel.app/classes')
         .then((res) => res.json())
         .then((data) =>setClassData(data))
 
-        fetch('http://localhost:5000/instructor')
+        fetch('https://language-server-ten.vercel.app/instructor')
         .then((res) => res.json())
         .then((data) =>setInstructorData(data))
     },[])

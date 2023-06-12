@@ -21,7 +21,7 @@ const SingleClass = ({data}) => {
                 price: item.price
             }
 
-            fetch('http://localhost:5000/carts',{
+            fetch('https://language-server-ten.vercel.app/carts',{
                 method:'POST',
                 headers: {
                     'content-type': 'application/json',

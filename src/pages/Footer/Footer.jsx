@@ -33,8 +33,9 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="col-md-3 mb-md-0 mb-3">
-                        <h5 className="text-uppercase">Languages</h5>
-                        <p>English has today assumed the position of a world language. The languages Arabic, Swahili, and French play a vital role as international languages,</p>
+                        <h5 className="text-uppercase">Contact</h5>
+                        <p>Number: 100033-333</p>
+                        <p>Email: address@mail.com</p>
                     </div>
                 </div>
             </div>

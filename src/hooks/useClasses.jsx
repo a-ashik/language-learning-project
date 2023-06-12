@@ -9,7 +9,7 @@ const useClasses = () => {
     const { refetch, data: cart= [] } = useQuery({
         queryKey: ['carts',user?.email],
         queryFn: async (query) =>{
-          const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`)
+          const res = await fetch(`https://language-server-ten.vercel.app/carts?email=${user?.email}`)
           return res.json()
         },
       })

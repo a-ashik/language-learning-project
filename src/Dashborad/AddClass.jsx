@@ -28,7 +28,7 @@ const AddClass = () => {
 
         console.log(classItem);
 
-        fetch('http://localhost:5000/classes',{
+        fetch('https://language-server-ten.vercel.app/classes',{
             method:'POST',
             headers: {
                 'content-type': 'application/json',
